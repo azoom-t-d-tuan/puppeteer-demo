@@ -17,5 +17,6 @@ steps:
           --region asia-northeast1 \
           --allow-unauthenticated \
           --image gcr.io/${PROJECT_ID}/${_APP_NAME} \
+          --memory 512Mi
 substitutions:
   _APP_NAME: puppeteer-demo
