@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "start": "nohup node app.js",
-    "exam": "nohup node example.js"
+    "exam": "nohup node example.js",
+    "delete-old-staging-tags": "git fetch --tags && git push origin --delete $(git tag -l 'staging-*') || true && git fetch origin --prune 'refs/tags/*:refs/tags/*'",
+    "staging:deploy": "yarn delete-old-staging-tags && TAG=`echo staging-$(date +%Y%m%d-%H%M%S)` && git tag $TAG && git push origin $TAG"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",

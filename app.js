@@ -1,11 +1,5 @@
-var createError = require('http-errors')
 var express = require('express')
 var path = require('path')
-var cookieParser = require('cookie-parser')
-var logger = require('morgan')
-
-var indexRouter = require('./routes/index')
-var usersRouter = require('./routes/users')
 const puppeteer = require('puppeteer')
 
 
@@ -24,7 +18,7 @@ app.get('/', (req, res) => {
     res.type('image/png').send(buffer)
   })()
 })
-const port = process.env.PORT || 8080
+const port = process.env.PORT || 9000
 app.listen(port, () => {
-  // console.log('Hello world listening on port', port)
+  console.log('Hello world listening on port', port)
 })
