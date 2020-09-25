@@ -13,6 +13,10 @@ app.get('/', (req, res) => {
       });
     const url = 'https://google.com'
     const page = await browser.newPage()
+    await page.setViewport({
+      width: 1200,
+      height: 1000,
+    })
     await page.goto(url, { waitUntil: 'networkidle2' })
     const buffer = await page.screenshot({path: 'example.png'})
     res.type('image/png').send(buffer)
@@ -20,5 +24,5 @@ app.get('/', (req, res) => {
 })
 const port = process.env.PORT || 9000
 app.listen(port, () => {
-  console.log('Hello world listening on port', port)
+  console.log('Listening on port', port)
 })
